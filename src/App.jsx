@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import TodoInput from './TodoInput'
+import { useState } from 'react'
+import TodoForm from './TodoForm'
 import TodoList from './TodoList'
 
 function App() {
 
   const savedTodos = JSON.parse(localStorage.getItem('todos')) || [] //initialize the todo from local storage
-  const [todos, setTodos] = useState(savedTodos) //to hold the list
+  const [todos, setTodos] = useState(savedTodos)
 
   const saveToLocalStorage = (todos) => {
     localStorage.setItem('todos', JSON.stringify(todos)) //save it to the local storage
@@ -35,7 +35,7 @@ function App() {
   return (
     <div className='App'>
       <h1>To-Do List</h1>
-      <TodoInput addTodo={addTodo} />
+      <TodoForm addTodo={addTodo} />
       <TodoList todos={todos} removeTodo={removeTodo} toggleComplete={toggleComplete} />
     </div>
   )
