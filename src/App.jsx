@@ -4,7 +4,8 @@ import TodoList from './TodoList'
 
 function App() {
 
-  const savedTodos = JSON.parse(localStorage.getItem('todos')) || [] //initialize the todo from local storage
+  //save the todo
+  const savedTodos = JSON.parse(localStorage.getItem('todos')) || []
   const [todos, setTodos] = useState(savedTodos)
 
   const saveToLocalStorage = (todos) => {
@@ -14,13 +15,13 @@ function App() {
   //add new todo
   const addTodo = (todo) => {
     const updateTodos = [...todos, todo]
-    setTodos(updateTodos) //adding to the existing list
+    setTodos(updateTodos)
     saveToLocalStorage(updateTodos)
   }
 
   //remove todo by its index
   const removeTodo = (index) => {
-    const updateTodos = todos.filter((_, i) => i !== index) //filter the todo at given index
+    const updateTodos = todos.filter((_, i) => i !== index)
     setTodos(updateTodos)
     saveToLocalStorage(updateTodos)
   }
@@ -29,7 +30,7 @@ function App() {
   const toggleComplete = (index) => {
     const updateTodos = todos.map((todo, i) => i === index ? { ...todo, completed: !todo.completed } : todo) //completed status to the todo
     setTodos(updateTodos)
-    saveToLocalStorage(updateTodos) 
+    saveToLocalStorage(updateTodos)
   }
 
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function TodoInput({addTodo}) {
+function TodoInput({ addTodo }) {
     //input field
     const [input, setInput] = useState('')
     const [description, setDescription] = useState('')
@@ -8,15 +8,15 @@ function TodoInput({addTodo}) {
 
     //handle submit btn
     const handleSubmit = (submit) => {
-        submit.preventDefault() 
-        if (input.trim()) { 
+        submit.preventDefault()
+        if (input.trim()) {
             addTodo({ // add new todo
-                text:input,
+                text: input,
                 description,
                 date,
-                completed: false //new todo are not completed
+                completed: false
             })
-            //then it clear the input
+
             setInput('')
             setDescription('')
             setDate('')
